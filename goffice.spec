@@ -12,6 +12,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  libgsf113-devel	>= 1.13.3
 BuildRequires:	libgnomeprint22-devel	>= 2.8.2
 BuildRequires:	libgnomeui-devel >= 2.0.0
+# this is probably needed because of a bug in one of the above three, try
+# removing this some time in the future.
 BuildRequires:  libSM-devel
 
 
