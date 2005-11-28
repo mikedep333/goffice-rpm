@@ -9,11 +9,9 @@ URL:		http://freshmeat.net/projects/goffice/
 Source0:        ftp://ftp.gnome.org/pub/gnome/sources/${name}/0.1/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  gtk2-devel	>= 2.6.0
 BuildRequires:  libgsf113-devel	>= 1.13.3
-BuildRequires:  libxml2-devel	>= 2.4.12
-BuildRequires:	libglade2-devel	>= 2.3.6
 BuildRequires:	libgnomeprint22-devel	>= 2.8.2
+BuildRequires:	libgnomeui-devel >= 2.0.0
 
 
 %description
@@ -23,11 +21,9 @@ Support libraries for gnome office
 Summary:	Libraries and include files for goffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	gtk2-devel >= 2.6.0
 Requires:	libgsf113-devel >= 1.13.3
-Requires:	libxml2-devel >= 2.4.12
-Requires:	libglade2-devel >= 2.3.6
 Requires:	libgnomeprint22-devel >= 2.8.2
+Requires:	libgnomeui-devel >= 2.0.0
 
 %description devel
 Development libraries for goffice
