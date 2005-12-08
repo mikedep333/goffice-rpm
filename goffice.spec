@@ -9,12 +9,12 @@ URL:		http://freshmeat.net/projects/goffice/
 Source0:        ftp://ftp.gnome.org/pub/gnome/sources/${name}/0.1/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  libgsf-devel	>= 1.13.3
+BuildRequires:	libgsf-devel		>= 1.13.3
 BuildRequires:	libgnomeprint22-devel	>= 2.8.2
-BuildRequires:	libgnomeui-devel >= 2.0.0
+BuildRequires:	libgnomeui-devel	>= 2.0.0
 # this is probably needed because of a bug in one of the above three, try
 # removing this some time in the future.
-BuildRequires:  libSM-devel
+# BuildRequires:  libSM-devel
 
 
 %description
@@ -24,9 +24,9 @@ Support libraries for gnome office
 Summary:	Libraries and include files for goffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	libgsf113-devel >= 1.13.3
-Requires:	libgnomeprint22-devel >= 2.8.2
-Requires:	libgnomeui-devel >= 2.0.0
+Requires:	libgsf-devel		>= 1.13.3
+Requires:	libgnomeprint22-devel	>= 2.8.2
+Requires:	libgnomeui-devel	>= 2.0.0
 
 %description devel
 Development libraries for goffice
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Mon Nov 28 2005 Hans de Goede <j.w.r.degoede@hhs.nl> 0.1.2-3
+* Thu Dec  8 2005 Hans de Goede <j.w.r.degoede@hhs.nl> 0.1.2-3
 -Switch to core version of libgsf now Core has 1.13 instead of using special
  Extras libgsf113 version.
 
