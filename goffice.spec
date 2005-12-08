@@ -1,6 +1,6 @@
 Name:		goffice         
 Version: 	0.1.2
-Release:        2
+Release:        3
 Summary:        Goffice support libraries
 
 Group:          System Environment/Libraries
@@ -9,7 +9,7 @@ URL:		http://freshmeat.net/projects/goffice/
 Source0:        ftp://ftp.gnome.org/pub/gnome/sources/${name}/0.1/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  libgsf113-devel	>= 1.13.3
+BuildRequires:  libgsf-devel	>= 1.13.3
 BuildRequires:	libgnomeprint22-devel	>= 2.8.2
 BuildRequires:	libgnomeui-devel >= 2.0.0
 # this is probably needed because of a bug in one of the above three, try
@@ -36,7 +36,6 @@ Development libraries for goffice
 
 
 %build
-export PKG_CONFIG_PATH=%{_libdir}/libgsf-1.13/lib/pkgconfig
 %configure
 make %{?_smp_mflags}
 
@@ -70,6 +69,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Nov 28 2005 Hans de Goede <j.w.r.degoede@hhs.nl> 0.1.2-3
+-Switch to core version of libgsf now Core has 1.13 instead of using special
+ Extras libgsf113 version.
+
 * Mon Nov 28 2005 Hans de Goede <j.w.r.degoede@hhs.nl> 0.1.2-2
 -Make Source0 a full URL
 -Better URL tag
