@@ -1,6 +1,6 @@
 Name:		goffice         
 Version: 	0.1.2
-Release:        3
+Release:        4%{?dist}
 Summary:        Goffice support libraries
 
 Group:          System Environment/Libraries
@@ -69,6 +69,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Feb 13 2006 Hans de Goede <j.w.r.degoede@hhs.nl> 0.1.2-4
+- Bump release and rebuild for new gcc4.1 and glibc.
+- add %%{?dist} for consistency with my other packages
+
 * Thu Dec  8 2005 Hans de Goede <j.w.r.degoede@hhs.nl> 0.1.2-3
 -Switch to core version of libgsf now Core has 1.13 instead of using special
  Extras libgsf113 version.
