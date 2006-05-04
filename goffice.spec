@@ -1,6 +1,6 @@
 Name:		goffice         
-Version: 	0.2.0
-Release:        2%{?dist}
+Version:        0.2.1
+Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
 License:	GPL  
@@ -70,6 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue May  2 2006 Hans de Goede <j.w.r.degoede@hhs.nl> 0.2.1-1
+- new upstream version: 0.2.1
+
 * Tue Mar 21 2006 Hans de Goede <j.w.r.degoede@hhs.nl> 0.2.0-2
 - rebuild for new libgsf
 
