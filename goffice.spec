@@ -1,15 +1,15 @@
-Name:		goffice         
-Version:        0.2.1
-Release:        2%{?dist}
+Name:           goffice         
+Version:        0.2.2
+Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
-License:	GPL  
-URL:		http://freshmeat.net/projects/goffice/
-Source0:        ftp://ftp.gnome.org/pub/gnome/sources/${name}/0.1/%{name}-%{version}.tar.bz2
+License:        GPL  
+URL:            http://freshmeat.net/projects/goffice/
+Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.2/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:	libgsf-devel		>= 1.13.3
-BuildRequires:	libgnomeprint22-devel	>= 2.8.2
-BuildRequires:	libgnomeui-devel	>= 2.0.0
+BuildRequires:  libgsf-devel           >= 1.13.3
+BuildRequires:  libgnomeprint22-devel  >= 2.8.2
+BuildRequires:  libgnomeui-devel       >= 2.0.0
 BuildRequires:  intltool gettext
 
 %description
@@ -17,12 +17,12 @@ Support libraries for gnome office
 
 
 %package devel
-Summary:	Libraries and include files for goffice
-Group:		Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	libgsf-devel		>= 1.13.3
-Requires:	libgnomeprint22-devel	>= 2.8.2
-Requires:	libgnomeui-devel	>= 2.0.0
+Summary:        Libraries and include files for goffice
+Group:          Development/Libraries
+Requires:       %{name} = %{version}
+Requires:       libgsf-devel           >= 1.13.3
+Requires:       libgnomeprint22-devel  >= 2.8.2
+Requires:       libgnomeui-devel       >= 2.0.0
 
 %description devel
 Development libraries for goffice
@@ -33,7 +33,9 @@ Development libraries for goffice
 
 
 %build
-%configure
+%configure --disable-dependency-tracking
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 make %{?_smp_mflags}
 
 
@@ -46,7 +48,6 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %post -p /sbin/ldconfig
-
 
 %postun -p /sbin/ldconfig
 
@@ -70,6 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Mar  1 2007 Hans de Goede <j.w.r.degoede@hhs.nl> 0.2.2-1
+- New upstream release 0.2.2
+- Fix rpath usage on x86_64
+
 * Mon Aug 28 2006 Hans de Goede <j.w.r.degoede@hhs.nl> 0.2.1-2
 - FE6 Rebuild
 
