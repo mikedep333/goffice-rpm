@@ -3,7 +3,7 @@ Version:        0.2.2
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
-License:        GPL  
+License:        GPLv2
 URL:            http://freshmeat.net/projects/goffice/
 Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.2/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -71,6 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Aug  3 2007 Bill Nottingham <notting@redhat.com>
+- tweak license tag
+
 * Thu Mar  1 2007 Hans de Goede <j.w.r.degoede@hhs.nl> 0.2.2-1
 - New upstream release 0.2.2
 - Fix rpath usage on x86_64
