@@ -3,6 +3,8 @@ Version:        0.2.2
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
+# bug filed upstream about this being GPL v2 only:
+# http://bugzilla.gnome.org/show_bug.cgi?id=463248
 License:        GPLv2
 URL:            http://freshmeat.net/projects/goffice/
 Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.2/%{name}-%{version}.tar.bz2
