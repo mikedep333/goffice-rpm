@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.2.2
+Version:        0.6.1
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
@@ -7,12 +7,11 @@ Group:          System Environment/Libraries
 # http://bugzilla.gnome.org/show_bug.cgi?id=463248
 License:        GPLv2
 URL:            http://freshmeat.net/projects/goffice/
-Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.2/%{name}-%{version}.tar.bz2
+Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.6/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  libgsf-devel           >= 1.13.3
-BuildRequires:  libgnomeprint22-devel  >= 2.8.2
+BuildRequires:  libgsf-gnome-devel     >= 1.13.3
 BuildRequires:  libgnomeui-devel       >= 2.0.0
-BuildRequires:  intltool gettext
+BuildRequires:  pcre-devel intltool gettext
 
 %description
 Support libraries for gnome office
@@ -21,10 +20,10 @@ Support libraries for gnome office
 %package devel
 Summary:        Libraries and include files for goffice
 Group:          Development/Libraries
-Requires:       %{name} = %{version}
-Requires:       libgsf-devel           >= 1.13.3
-Requires:       libgnomeprint22-devel  >= 2.8.2
+Requires:       %{name} = %{version}-%{release}
+Requires:       libgsf-gnome-devel     >= 1.13.3
 Requires:       libgnomeui-devel       >= 2.0.0
+Requires:       pkgconfig
 
 %description devel
 Development libraries for goffice
@@ -44,7 +43,7 @@ make %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
-%find_lang goffice
+%find_lang goffice-%{version}
 rm $RPM_BUILD_ROOT/%{_libdir}/*.la
 rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
@@ -58,7 +57,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 rm -rf $RPM_BUILD_ROOT
 
 
-%files -f goffice.lang
+%files -f goffice-%{version}.lang
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/*.so.*
@@ -67,12 +66,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/goffice/
 
 %files devel
-%{_includedir}/libgoffice-1/
-%{_libdir}/pkgconfig/libgoffice-1.pc
+%{_includedir}/libgoffice-0.6/
+%{_libdir}/pkgconfig/libgoffice-0.6.pc
 %{_libdir}/*.so
+%{_datadir}/gtk-doc/html/goffice/
 
 
 %changelog
+* Fri Jan 25 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6.1-1
+- Jump to upstream version 0.6.1 for new gnumeric
+- Notice ABI and API changes!
+
 * Fri Aug  3 2007 Bill Nottingham <notting@redhat.com>
 - tweak license tag
 
