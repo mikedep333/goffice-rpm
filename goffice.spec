@@ -1,6 +1,6 @@
 Name:           goffice         
-Version:        0.6.1
-Release:        2%{?dist}
+Version:        0.6.2
+Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
 # bug filed upstream about this being GPL v2 only:
@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Mar  8 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6.2-1
+- New upstream version 0.6.2
+
 * Tue Feb 19 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 0.6.1-2
 - Autorebuild for GCC 4.3
 
