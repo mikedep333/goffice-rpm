@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.6.2
+Version:        0.6.4
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
@@ -11,7 +11,11 @@ Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.6/%{name}-%{vers
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  libgsf-gnome-devel     >= 1.13.3
 BuildRequires:  libgnomeui-devel       >= 2.0.0
-BuildRequires:  pcre-devel intltool gettext
+BuildRequires:  intltool gettext
+# glib on fedora 8 is too old
+%if 0%{?fedora} < 9
+BuildRequires:  pcre-devel
+%endif
 
 %description
 Support libraries for gnome office
@@ -73,6 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Aug 27 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.6.4-1
+- Updated to 0.6.4
+- BuildRequires: pcre-devel only on Fedora < 9
+
 * Sat Mar  8 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6.2-1
 - New upstream version 0.6.2
 
