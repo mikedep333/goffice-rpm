@@ -73,12 +73,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libgoffice-0.6/
 %{_libdir}/pkgconfig/libgoffice-0.6.pc
 %{_libdir}/*.so
-%{_datadir}/gtk-doc/html/goffice/
+%{_datadir}/gtk-doc/html/goffice-0.6/
 
 
 %changelog
 * Sun Sep  7 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.6.5-1
 - Updated to 0.6.5
+- Development docs are now in goffice-0.6
 
 * Wed Aug 27 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.6.4-1
 - Updated to 0.6.4
