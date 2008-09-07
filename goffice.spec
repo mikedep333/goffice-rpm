@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.6.4
+Version:        0.6.5
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Sep  7 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.6.5-1
+- Updated to 0.6.5
+
 * Wed Aug 27 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.6.4-1
 - Updated to 0.6.4
 - BuildRequires: pcre-devel only on Fedora < 9
