@@ -1,6 +1,6 @@
 Name:           goffice         
 Version:        0.6.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
 # bug filed upstream about this being GPL v2 only:
@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Jan 12 2009 Caolán McNamara <caolanm@redhat.com> - 0.6.5-2
+- rebuild to get provides pkgconfig(libgoffice-0.4) >= 0:0.4.0
+
 * Sun Sep  7 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.6.5-1
 - Updated to 0.6.5
 - Development docs are now in goffice-0.6
