@@ -1,0 +1,99 @@
+From 2128a2e4549e8fdd9988c952f87a5c38e28efe82 Mon Sep 17 00:00:00 2001
+From: Jean Brefort <jean.brefort@normalesup.org>
+Date: Fri, 06 Mar 2009 09:51:21 +0000
+Subject: don't show a marker in the legend. [#574340] skip points when the datum is
+
+2009-03-06  Jean Brefort  <jean.brefort@normalesup.org>
+
+	* plugins/plot_distrib/gog-histogram.c: don't show a marker in the
+	legend. [#574340]
+	* plugins/plot_pie/gog-pie.c: (gog_pie_view_render): skip points when
+	the datum is skipped. [#574348]
+
+
+svn path=/branches/goffice-0-6/; revision=2325
+---
+diff --git a/ChangeLog b/ChangeLog
+index df71675..02e99eb 100644
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -1,3 +1,10 @@
++2009-03-06  Jean Brefort  <jean.brefort@normalesup.org>
++
++	* plugins/plot_distrib/gog-histogram.c: don't show a marker in the
++	legend. [#574340]
++	* plugins/plot_pie/gog-pie.c: (gog_pie_view_render): skip points when
++	the datum is skipped. [#574348]
++
+ 2009-02-19  Jean Brefort  <jean.brefort@normalesup.org>
+ 
+ 	* plugins/plot_barcol/gog-1.5d.c: (gog_plot1_5d_update): don't set
+diff --git a/NEWS b/NEWS
+index 4025058..58110e2 100644
+--- a/NEWS
++++ b/NEWS
+@@ -2,6 +2,8 @@ goffice 0.6.7:
+ 
+ Jean:
+ 	* Fixed crash when adding series to bar chart. [#572354]
++	* Don't display markers in histogram legend. [#574340]
++	* Skip points corresponding to invalid valies in pie charts. [#574348]
+ 	
+ --------------------------------------------------------------------------
+ goffice 0.6.6:
+diff --git a/plugins/plot_boxes/gog-histogram.c b/plugins/plot_boxes/gog-histogram.c
+index 2dd8dbe..8ddd005 100644
+--- a/plugins/plot_boxes/gog-histogram.c
++++ b/plugins/plot_boxes/gog-histogram.c
+@@ -193,7 +193,7 @@ gog_histogram_plot_class_init (GogPlotClass *gog_plot_klass)
+ 	plot_klass->desc.num_series_max = 1;
+ 	plot_klass->series_type = gog_histogram_plot_series_get_type ();
+ 	plot_klass->axis_set = GOG_AXIS_SET_XY;
+-	plot_klass->desc.series.style_fields	= GOG_STYLE_LINE | GOG_STYLE_FILL;
++	plot_klass->desc.series.style_fields	= GOG_STYLE_OUTLINE | GOG_STYLE_FILL;
+ 	plot_klass->axis_get_bounds   		= gog_histogram_plot_axis_get_bounds;
+ }
+ 
+@@ -452,14 +452,6 @@ gog_histogram_plot_series_update (GogObject *obj)
+ }
+ 
+ static void
+-gog_histogram_plot_series_init_style (GogStyledObject *gso, GogStyle *style)
+-{
+-	((GogStyledObjectClass*) gog_histogram_plot_series_parent_klass)->init_style (gso, style);
+-
+-	style->outline.dash_type = GO_LINE_NONE;
+-}
+-
+-static void
+ gog_histogram_plot_series_finalize (GObject *obj)
+ {
+ 	GogHistogramPlotSeries *series = GOG_HISTOGRAM_PLOT_SERIES (obj);
+@@ -507,7 +499,6 @@ gog_histogram_plot_series_class_init (GogObjectClass *obj_klass)
+ 	gog_histogram_plot_series_parent_klass = g_type_class_peek_parent (obj_klass);
+ 	obj_klass->update = gog_histogram_plot_series_update;
+ 	gog_klass->view_type	= gog_histogram_series_view_get_type ();
+-	gso_klass->init_style = gog_histogram_plot_series_init_style;
+ 
+ 	gog_object_register_roles (gog_klass, roles, G_N_ELEMENTS (roles));
+ 
+diff --git a/plugins/plot_pie/gog-pie.c b/plugins/plot_pie/gog-pie.c
+index a106f09..50f34ef 100644
+--- a/plugins/plot_pie/gog-pie.c
++++ b/plugins/plot_pie/gog-pie.c
+@@ -728,8 +728,12 @@ gog_pie_view_render (GogView *view, GogViewAllocation const *bbox)
+ 		overrides = gog_series_get_overrides (GOG_SERIES (series));
+ 		for (k = 0 ; k < series->base.num_elements; k++) {
+ 			len = fabs (vals[k]) * scale;
+-			if (!go_finite (len) || len < 1e-3)
++			if (!go_finite (len) || len < 1e-3) {
++				if ((overrides != NULL) &&
++				    (GOG_SERIES_ELEMENT (overrides->data)->index == k))
++					overrides = overrides->next;
+ 				continue;
++			}
+ 
+ 			gpse = NULL;
+ 			if ((overrides != NULL) &&
+--
+cgit v0.8.2
