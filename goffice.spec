@@ -1,6 +1,6 @@
 Name:           goffice         
 Version:        0.7.16
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
 # bug filed upstream about this being GPL v2 only:
@@ -77,8 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Mon Nov 30 2009 Huzaifa Sidhpurwala <huzaifas@redhat.com> 0.7.16-1
-New build
+* Tue Dec 01 2009 Huzaifa Sidhpurwala <huzaifas@redhat.com> 0.7.16-2
+- New build
+- Version bump
 * Wed Oct 21 2009 Robert Scheck <robert@fedoraproject.org> - 0.6.6-4
 - Applied 3 patches from the 0.6 branch (#503068, #505001)
 
