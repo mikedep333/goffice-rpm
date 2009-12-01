@@ -1,6 +1,6 @@
 Name:           goffice         
-Version:        0.6.6
-Release:        4%{?dist}
+Version:        0.7.16
+Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
 # bug filed upstream about this being GPL v2 only:
@@ -8,9 +8,6 @@ Group:          System Environment/Libraries
 License:        GPLv2
 URL:            http://freshmeat.net/projects/goffice/
 Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.6/%{name}-%{version}.tar.bz2
-Patch0:         goffice-0.6.6-backport-20090219.patch
-Patch1:         goffice-0.6.6-backport-20090306.patch
-Patch2:         goffice-0.6.6-backport-20090501.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  libgsf-gnome-devel     >= 1.13.3
 BuildRequires:  libgnomeui-devel       >= 2.0.0
@@ -38,9 +35,6 @@ Development libraries for goffice
 
 %prep
 %setup -q
-%patch0 -p1 -b .backport-20090219
-%patch1 -p1 -b .backport-20090306
-%patch2 -p1 -b .backport-20090501
 
 
 %build
@@ -76,13 +70,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/goffice/
 
 %files devel
-%{_includedir}/libgoffice-0.6/
-%{_libdir}/pkgconfig/libgoffice-0.6.pc
+%{_includedir}/libgoffice-0.8/
+%{_libdir}/pkgconfig/libgoffice-0.8.pc
 %{_libdir}/*.so
-%{_datadir}/gtk-doc/html/goffice-0.6/
+%{_datadir}/gtk-doc/html/goffice-0.8/
 
 
 %changelog
+* Mon Nov 30 2009 Huzaifa Sidhpurwala <huzaifas@redhat.com> 0.7.16-1
+New build
 * Wed Oct 21 2009 Robert Scheck <robert@fedoraproject.org> - 0.6.6-4
 - Applied 3 patches from the 0.6 branch (#503068, #505001)
 
