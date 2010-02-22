@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.7.17
+Version:        0.8.0
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
@@ -7,15 +7,11 @@ Group:          System Environment/Libraries
 # http://bugzilla.gnome.org/show_bug.cgi?id=463248
 License:        GPLv2
 URL:            http://freshmeat.net/projects/goffice/
-Source0:        ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.6/%{name}-%{version}.tar.bz2
+Source0:        http://ftp.acc.umu.se/pub/GNOME/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  libgsf-gnome-devel     >= 1.13.3
 BuildRequires:  libgnomeui-devel       >= 2.0.0
 BuildRequires:  intltool gettext
-# glib on fedora 8 is too old
-%if 0%{?fedora} < 9
-BuildRequires:  pcre-devel
-%endif
 
 %description
 Support libraries for gnome office
@@ -77,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Feb 22 2010 Huzaifa Sidhpurwala <huzaifas@redhat.com> 0.8.0-1
+- New upstream
+
 * Wed Dec 31 2009 Huzaifa Sidhpurwala <huzaifas@redhat.com> 0.7.17-1
 - New upstream version
 
