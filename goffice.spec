@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.8.7
+Version:        0.8.8
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Jul 31 2010 Julian Sikorski <belegdol@fedoraproject.org> - 0.8.8-1
+- Updated to 0.8.8
+
 * Sun Jul 25 2010 Julian Sikorski <belegdol@fedoraproject.org> - 0.8.7-1
 - Updated to 0.8.7
 
