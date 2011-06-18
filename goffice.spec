@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.8.15
+Version:        0.8.16
 Release:        1%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
@@ -7,7 +7,7 @@ Group:          System Environment/Libraries
 # http://bugzilla.gnome.org/show_bug.cgi?id=463248
 License:        GPLv2
 URL:            http://freshmeat.net/projects/goffice/
-Source0:        http://ftp.acc.umu.se/pub/GNOME/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
+Source0:        http://ftp.acc.umu.se/pub/GNOME/sources/%{name}/%{version}/%{name}-%{version}.tar.xz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  libgsf-gnome-devel     >= 1.13.3
 BuildRequires:  libgnomeui-devel       >= 2.0.0
@@ -73,6 +73,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Jun 18 2011 Julian Sikorski <belegdol@fedoraproject.org> - 0.8.16-1
+- Updated to 0.8.16
+- Switched to .xz sources
+
 * Sun May 22 2011 Julian Sikorski <belegdol@gmail.com> - 0.8.15-1
 - Updated to 0.8.15
 
