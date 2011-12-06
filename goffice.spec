@@ -1,6 +1,6 @@
 Name:           goffice         
 Version:        0.8.17
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Goffice support libraries
 Group:          System Environment/Libraries
 # bug filed upstream about this being GPL v2 only:
@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Dec 06 2011 Adam Jackson <ajax@redhat.com> - 0.8.17-2
+- Rebuild for new libpng
+
 * Tue Aug 02 2011 Julian Sikorski <belegdol@fedoraproject.org> - 0.8.17-1
 - Updated to 0.8.17
 
