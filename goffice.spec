@@ -12,7 +12,7 @@ Source0:        http://ftp.gnome.org/pub/gnome/sources/%{name}/%{version}/%{name
 BuildRequires:  libgsf-gnome-devel     >= 1.13.3
 BuildRequires:  libgnomeui-devel       >= 2.0.0
 BuildRequires:  intltool gettext
-BuildRequires:  pcre-devel
+BuildRequires:  pcre-devel pcre-tools
 
 %description
 Support libraries for gnome office
@@ -70,7 +70,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 %changelog
 * Tue Dec  6 2011 Peter Robinson <pbrobinson@fedoraproject.org> -0.8.17-3
-- add pcre-devel dep
+- add pcre-devel and pcre-tools
 
 * Tue Dec 06 2011 Adam Jackson <ajax@redhat.com> - 0.8.17-2
 - Rebuild for new libpng
