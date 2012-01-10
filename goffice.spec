@@ -1,18 +1,16 @@
 Name:           goffice         
-Version:        0.8.17
-Release:        3%{?dist}
-Summary:        Goffice support libraries
-Group:          System Environment/Libraries
+Version:        0.9.1
+Release:        1%{?dist}
+Summary:        G Office support libraries
 # bug filed upstream about this being GPL v2 only:
 # http://bugzilla.gnome.org/show_bug.cgi?id=463248
 License:        GPLv2
-URL:            http://freshmeat.net/projects/goffice/
-Source0:        http://ftp.gnome.org/pub/gnome/sources/%{name}/%{version}/%{name}-%{version}.tar.xz
-
-BuildRequires:  libgsf-gnome-devel     >= 1.13.3
-BuildRequires:  libgnomeui-devel       >= 2.0.0
-BuildRequires:  intltool gettext
-BuildRequires:  pcre-devel pcre-tools
+URL:            http://projects.gnome.org/gnumeric/index.shtml
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.tar.xz
+BuildRequires:  gtk3-devel
+BuildRequires:  intltool
+BuildRequires:  libgsf-devel
+BuildRequires:  librsvg2-devel
 
 %description
 Support libraries for gnome office
@@ -20,11 +18,7 @@ Support libraries for gnome office
 
 %package devel
 Summary:        Libraries and include files for goffice
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
-Requires:       libgsf-gnome-devel     >= 1.13.3
-Requires:       libgnomeui-devel       >= 2.0.0
-Requires:       pkgconfig
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 Development libraries for goffice
@@ -42,6 +36,7 @@ make %{?_smp_mflags}
 
 
 %install
+rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 %find_lang goffice-%{version}
 rm $RPM_BUILD_ROOT/%{_libdir}/*.la
@@ -54,7 +49,6 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %files -f goffice-%{version}.lang
-%defattr(-,root,root,-)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/*.so.*
 %{_libdir}/goffice/
@@ -62,13 +56,20 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 %{_datadir}/pixmaps/goffice/
 
 %files devel
-%{_includedir}/libgoffice-0.8/
-%{_libdir}/pkgconfig/libgoffice-0.8.pc
+%{_includedir}/libgoffice-0.10/
+%{_libdir}/pkgconfig/libgoffice-0.10.pc
 %{_libdir}/*.so
-%{_datadir}/gtk-doc/html/goffice-0.8/
+%{_datadir}/gtk-doc/html/goffice-0.10/
 
 
 %changelog
+* Sat Jan 07 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.1-1
+- Updated to 0.9.1 and updated BuildRequires accordingly
+- Updated the Source0 URL
+- Updated the URL
+- Dropped obsolete Group, Buildroot, %%clean and %%defattr
+- Streamlined -devel subpackage deps, rpm detects pkgconfig ones automatically
+
 * Tue Dec  6 2011 Peter Robinson <pbrobinson@fedoraproject.org> -0.8.17-3
 - add pcre-devel and pcre-tools
 
