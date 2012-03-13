@@ -52,8 +52,6 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/*.so.*
 %{_libdir}/goffice/
-%{_datadir}/goffice/
-%{_datadir}/pixmaps/goffice/
 
 %files devel
 %{_includedir}/libgoffice-0.10/
@@ -65,6 +63,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 %changelog
 * Tue Mar 13 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.2-1
 - Updated to 0.9.2
+- Resources are embedded nows
 
 * Sat Jan 07 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.1-1
 - Updated to 0.9.1 and updated BuildRequires accordingly
