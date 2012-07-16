@@ -1,10 +1,8 @@
 Name:           goffice         
-Version:        0.9.4
+Version:        0.9.5
 Release:        1%{?dist}
 Summary:        G Office support libraries
-# bug filed upstream about this being GPL v2 only:
-# http://bugzilla.gnome.org/show_bug.cgi?id=463248
-License:        GPLv2
+License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.tar.xz
 BuildRequires:  gtk3-devel
@@ -61,6 +59,10 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Mon Jul 16 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.5-1
+- Updated to 0.9.5
+- Updated the License tag: goffice is now GPLv2+
+
 * Tue Jun 26 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.4-1
 - Updated to 0.9.4
 
