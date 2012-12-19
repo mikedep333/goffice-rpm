@@ -1,10 +1,10 @@
 Name:           goffice         
-Version:        0.9.90
+Version:        0.10.0
 Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.tar.xz
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.10/%{name}-%{version}.tar.xz
 BuildRequires:  gtk3-devel
 BuildRequires:  intltool
 BuildRequires:  libgsf-devel
@@ -59,6 +59,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Wed Dec 19 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.0-1
+- Updated to 0.10.0
+
 * Sun Nov 18 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.90-1
 - Updated to 0.9.90
 
