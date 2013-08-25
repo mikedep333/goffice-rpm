@@ -1,6 +1,6 @@
 Name:           goffice         
-Version:        0.10.4
-Release:        3%{?dist}
+Version:        0.10.5
+Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
@@ -9,7 +9,7 @@ BuildRequires:  gtk3-devel
 BuildRequires:  intltool
 BuildRequires:  libgsf-devel
 BuildRequires:  librsvg2-devel
-BuildRequires:  perl-IO-Compress
+BuildRequires:  perl(IO::Compress::Gzip)
 
 %description
 Support libraries for gnome office
@@ -59,6 +59,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Sun Aug 25 2013 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.5-1
+- Updated to 0.10.5
+
 * Mon Aug  5 2013 Peter Robinson <pbrobinson@fedoraproject.org> 0.10.4-3
 - Fix FTBFS
 
