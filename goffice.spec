@@ -5,6 +5,7 @@ Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.10/%{name}-%{version}.tar.xz
+Patch0:         %{name}-%{version}-destdir.patch
 BuildRequires:  gtk3-devel
 BuildRequires:  intltool
 BuildRequires:  libgsf-devel
@@ -26,6 +27,7 @@ Development libraries for goffice
 
 %prep
 %setup -q
+%patch0 -p1 -b .destdir
 
 
 %build
@@ -65,6 +67,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 - Updated to 0.10.12
 - Added libxslt-devel to BuildRequires
 - Added %%{_datadir}/goffice to %%files
+- Patched the bogus DESTDIR out
 
 * Wed Feb 19 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.11-1
 - Updated to 0.10.11
