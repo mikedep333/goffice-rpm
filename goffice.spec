@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.10.11
+Version:        0.10.12
 Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
@@ -59,6 +59,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Tue Mar 04 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.12-1
+- Updated to 0.10.12
+
 * Wed Feb 19 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.11-1
 - Updated to 0.10.11
 
