@@ -51,6 +51,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/*.so.*
 %{_libdir}/goffice/
+%{_datadir}/goffice/
 
 %files devel
 %{_includedir}/libgoffice-0.10/
@@ -63,6 +64,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 * Tue Mar 04 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.12-1
 - Updated to 0.10.12
 - Added libxslt-devel to BuildRequires
+- Added %%{_datadir}/goffice to %%files
 
 * Wed Feb 19 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.11-1
 - Updated to 0.10.11
