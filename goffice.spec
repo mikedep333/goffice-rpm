@@ -9,6 +9,7 @@ BuildRequires:  gtk3-devel
 BuildRequires:  intltool
 BuildRequires:  libgsf-devel
 BuildRequires:  librsvg2-devel
+BuildRequires:  libxslt-devel
 BuildRequires:  perl(IO::Compress::Gzip)
 
 %description
@@ -61,6 +62,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 %changelog
 * Tue Mar 04 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.12-1
 - Updated to 0.10.12
+- Added libxslt-devel to BuildRequires
 
 * Wed Feb 19 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.11-1
 - Updated to 0.10.11
