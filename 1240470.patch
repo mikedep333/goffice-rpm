@@ -1,0 +1,22 @@
+From 7566996bbde6c7298f13279985109b6417cee479 Mon Sep 17 00:00:00 2001
+From: Morten Welinder <terra@gnome.org>
+Date: Wed, 8 Jul 2015 18:20:50 -0400
+Subject: logfit: fix problem with missing y_vals.
+
+
+diff --git a/plugins/reg_logfit/gog-logfit.c b/plugins/reg_logfit/gog-logfit.c
+index 445af9a..7230b45 100644
+--- a/plugins/reg_logfit/gog-logfit.c
++++ b/plugins/reg_logfit/gog-logfit.c
+@@ -51,7 +51,7 @@ gog_log_fit_curve_update (GogObject *obj)
+ 		ty_vals = g_new (double, nb);
+ 		for (i = 0, used = 0; i < nb; i++) {
+ 			x = (x_vals)? x_vals[i]: i;
+-			y = y_vals[i];
++			y = y_vals ? y_vals[i] : go_nan;
+ 			if (!go_finite (x) || !go_finite (y)) {
+ 				if (rc->skip_invalid)
+ 					continue;
+-- 
+cgit v0.10.2
+
