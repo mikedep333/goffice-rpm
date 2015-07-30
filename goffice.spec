@@ -1,6 +1,6 @@
 Name:           goffice         
-Version:        0.10.22
-Release:        3%{?dist}
+Version:        0.10.23
+Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
@@ -63,6 +63,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Thu Jul 30 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.23-1
+- Updated to 0.10.23
+
 * Sat Jul 11 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.22-3
 - Fixed RH bug 1240470 with a patch from upstream git
 
