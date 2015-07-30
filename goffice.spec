@@ -5,7 +5,6 @@ Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.10/%{name}-%{version}.tar.xz
-Patch0:         1240470.patch
 BuildRequires:  gtk3-devel
 BuildRequires:  intltool
 BuildRequires:  libgsf-devel
@@ -27,7 +26,6 @@ Development libraries for goffice
 
 %prep
 %setup -q
-%patch0 -p1
 
 
 %build
@@ -65,6 +63,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 %changelog
 * Thu Jul 30 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.23-1
 - Updated to 0.10.23
+- Dropped the patch included in the release
 
 * Sat Jul 11 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.22-3
 - Fixed RH bug 1240470 with a patch from upstream git
