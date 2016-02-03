@@ -1,6 +1,6 @@
 Name:           goffice         
 Version:        0.10.25
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
@@ -61,6 +61,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.25-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Mon Dec 28 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.25-1
 - Updated to 0.10.25
 
