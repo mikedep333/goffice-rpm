@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.10.29
+Version:        0.10.30
 Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
@@ -29,14 +29,14 @@ Development libraries for goffice
 
 
 %build
-%configure --disable-dependency-tracking
+%configure --disable-silent-rules
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
-make %{?_smp_mflags} V=1
+make %{?_smp_mflags}
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 %find_lang goffice-%{version}
 rm $RPM_BUILD_ROOT/%{_libdir}/*.la
 rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
@@ -48,7 +48,8 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %files -f goffice-%{version}.lang
-%doc AUTHORS COPYING ChangeLog NEWS README
+%doc AUTHORS ChangeLog NEWS README
+%license COPYING
 %{_libdir}/*.so.*
 %{_libdir}/goffice/
 %{_datadir}/goffice/
@@ -61,6 +62,10 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Mon Jun 20 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.30-1
+- Updated to 0.10.30
+- Spec file cleanups
+
 * Sat May 07 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.29-1
 - Updated to 0.10.29
 
