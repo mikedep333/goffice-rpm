@@ -1,15 +1,16 @@
 Name:           goffice         
 Version:        0.10.32
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.10/%{name}-%{version}.tar.xz
-BuildRequires:  gtk3-devel
 BuildRequires:  intltool
-BuildRequires:  libgsf-devel
-BuildRequires:  librsvg2-devel
-BuildRequires:  libxslt-devel
+BuildRequires:  pkgconfig(gtk+-3.0) >= 3.8.7
+BuildRequires:  pkgconfig(lasem-0.4) >= 0.4.1
+BuildRequires:  pkgconfig(libgsf-1) >= 1.14.24
+BuildRequires:  pkgconfig(librsvg-2.0) >= 2.22.0
+BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  perl(IO::Compress::Gzip)
 
 %description
@@ -32,7 +33,7 @@ Development libraries for goffice
 %configure --disable-silent-rules
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
-make %{?_smp_mflags}
+%make_build
 
 
 %install
@@ -62,6 +63,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Sat Oct 29 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.32-2
+- Added lasem support
+
 * Sat Aug 27 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.32-1
 - Updated to 0.10.32
 
