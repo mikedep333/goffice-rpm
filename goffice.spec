@@ -1,6 +1,6 @@
 Name:           goffice         
-Version:        0.10.32
-Release:        2%{?dist}
+Version:        0.10.33
+Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
@@ -63,6 +63,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Tue Jan 31 2017 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.33-1
+- Updated to 0.10.33
+
 * Sat Oct 29 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.32-2
 - Added lasem support
 
