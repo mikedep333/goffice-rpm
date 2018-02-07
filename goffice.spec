@@ -1,6 +1,6 @@
 Name:           goffice         
 Version:        0.10.38
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
@@ -63,6 +63,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.38-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Sun Dec 31 2017 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.38-1
 - Updated to 0.10.38
 
