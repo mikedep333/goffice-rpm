@@ -1,10 +1,11 @@
 Name:           goffice         
-Version:        0.10.38
-Release:        2%{?dist}
+Version:        0.10.39
+Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.10/%{name}-%{version}.tar.xz
+BuildRequires:  gcc
 BuildRequires:  intltool
 BuildRequires:  pkgconfig(gtk+-3.0) >= 3.8.7
 BuildRequires:  pkgconfig(lasem-0.4) >= 0.4.1
@@ -43,9 +44,7 @@ rm $RPM_BUILD_ROOT/%{_libdir}/*.la
 rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+%ldconfig_scriptlets
 
 
 %files -f goffice-%{version}.lang
@@ -63,6 +62,11 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Sat Mar 17 2018 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.39-1
+- Updated to 0.10.39
+- Removed ldconfig scriptlets as per https://fedoraproject.org/wiki/Changes/Removing_ldconfig_scriptlets
+- Added gcc to BuildRequires as per https://fedoraproject.org/wiki/Packaging:C_and_C%2B%2B#BuildRequires_and_Requires
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.38-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
