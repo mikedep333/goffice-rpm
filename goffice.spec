@@ -1,5 +1,5 @@
 Name:           goffice         
-Version:        0.10.39
+Version:        0.10.40
 Release:        1%{?dist}
 Summary:        G Office support libraries
 License:        GPLv2+
@@ -62,6 +62,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Sun May 06 2018 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.40-1
+- Updated to 0.10.40
+
 * Sat Mar 17 2018 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.39-1
 - Updated to 0.10.39
 - Removed ldconfig scriptlets as per https://fedoraproject.org/wiki/Changes/Removing_ldconfig_scriptlets
