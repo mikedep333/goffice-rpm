@@ -1,6 +1,6 @@
 Name:           goffice         
 Version:        0.10.41
-Release:        1%{?dist}
+Release:        1%{?dist}.1
 Summary:        G Office support libraries
 License:        GPLv2+
 URL:            http://projects.gnome.org/gnumeric/index.shtml
@@ -44,7 +44,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/*.la
 rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
-%ldconfig_scriptlets
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
 
 
 %files -f goffice-%{version}.lang
@@ -62,6 +64,9 @@ rm $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{version}/plugins/*/*.la
 
 
 %changelog
+* Wed Jun 20 2018 Mike DePaulo (GFDL) - 0.10.41-1.1
+- Reintroduce legacy RPM scriptlets for RHEL7
+
 * Thu May 10 2018 Julian Sikorski <belegdol@fedoraproject.org> - 0.10.41-1
 - Updated to 0.10.41
 
